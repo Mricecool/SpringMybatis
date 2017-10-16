@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mybatis.dao.WorkinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mybatis.model.Workinfo" >
+    <id column="workid" property="workid" jdbcType="BIGINT" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="taskname" property="taskname" jdbcType="VARCHAR" />
+    <result column="fromsite" property="fromsite" jdbcType="VARCHAR" />
+    <result column="tosite" property="tosite" jdbcType="VARCHAR" />
+    <result column="planstarttime" property="planstarttime" jdbcType="VARCHAR" />
+    <result column="planendtime" property="planendtime" jdbcType="VARCHAR" />
+    <result column="signintime" property="signintime" jdbcType="TIMESTAMP" />
+    <result column="signinsite" property="signinsite" jdbcType="VARCHAR" />
+    <result column="signouttime" property="signouttime" jdbcType="TIMESTAMP" />
+    <result column="signoutsite" property="signoutsite" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="latin" property="latin" jdbcType="VARCHAR" />
+    <result column="lonin" property="lonin" jdbcType="VARCHAR" />
+    <result column="latout" property="latout" jdbcType="VARCHAR" />
+    <result column="lonout" property="lonout" jdbcType="VARCHAR" />
+    <result column="signInImage" property="signinimage" jdbcType="VARCHAR" />
+    <result column="signOutImage" property="signoutimage" jdbcType="VARCHAR" />
+    <result column="signOutInfo" property="signoutinfo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    workid, openid, taskname, fromsite, tosite, planstarttime, planendtime, signintime, 
+    signinsite, signouttime, signoutsite, createtime, state, latin, lonin, latout, lonout, 
+    signInImage, signOutImage, signOutInfo
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from workinfo
+    where workid = #{workid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from workinfo
+    where workid = #{workid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mybatis.model.Workinfo" >
+    insert into workinfo (workid, openid, taskname, 
+      fromsite, tosite, planstarttime, 
+      planendtime, signintime, signinsite, 
+      signouttime, signoutsite, createtime, 
+      state, latin, lonin, 
+      latout, lonout, signInImage, 
+      signOutImage, signOutInfo)
+    values (#{workid,jdbcType=BIGINT}, #{openid,jdbcType=VARCHAR}, #{taskname,jdbcType=VARCHAR}, 
+      #{fromsite,jdbcType=VARCHAR}, #{tosite,jdbcType=VARCHAR}, #{planstarttime,jdbcType=VARCHAR}, 
+      #{planendtime,jdbcType=VARCHAR}, #{signintime,jdbcType=TIMESTAMP}, #{signinsite,jdbcType=VARCHAR}, 
+      #{signouttime,jdbcType=TIMESTAMP}, #{signoutsite,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{state,jdbcType=INTEGER}, #{latin,jdbcType=VARCHAR}, #{lonin,jdbcType=VARCHAR}, 
+      #{latout,jdbcType=VARCHAR}, #{lonout,jdbcType=VARCHAR}, #{signinimage,jdbcType=VARCHAR}, 
+      #{signoutimage,jdbcType=VARCHAR}, #{signoutinfo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mybatis.model.Workinfo" >
+    insert into workinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="workid != null" >
+        workid,
+      </if>
+      <if test="openid != null" >
+        openid,
+      </if>
+      <if test="taskname != null" >
+        taskname,
+      </if>
+      <if test="fromsite != null" >
+        fromsite,
+      </if>
+      <if test="tosite != null" >
+        tosite,
+      </if>
+      <if test="planstarttime != null" >
+        planstarttime,
+      </if>
+      <if test="planendtime != null" >
+        planendtime,
+      </if>
+      <if test="signintime != null" >
+        signintime,
+      </if>
+      <if test="signinsite != null" >
+        signinsite,
+      </if>
+      <if test="signouttime != null" >
+        signouttime,
+      </if>
+      <if test="signoutsite != null" >
+        signoutsite,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="latin != null" >
+        latin,
+      </if>
+      <if test="lonin != null" >
+        lonin,
+      </if>
+      <if test="latout != null" >
+        latout,
+      </if>
+      <if test="lonout != null" >
+        lonout,
+      </if>
+      <if test="signinimage != null" >
+        signInImage,
+      </if>
+      <if test="signoutimage != null" >
+        signOutImage,
+      </if>
+      <if test="signoutinfo != null" >
+        signOutInfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="workid != null" >
+        #{workid,jdbcType=BIGINT},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="taskname != null" >
+        #{taskname,jdbcType=VARCHAR},
+      </if>
+      <if test="fromsite != null" >
+        #{fromsite,jdbcType=VARCHAR},
+      </if>
+      <if test="tosite != null" >
+        #{tosite,jdbcType=VARCHAR},
+      </if>
+      <if test="planstarttime != null" >
+        #{planstarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="planendtime != null" >
+        #{planendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="signintime != null" >
+        #{signintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signinsite != null" >
+        #{signinsite,jdbcType=VARCHAR},
+      </if>
+      <if test="signouttime != null" >
+        #{signouttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signoutsite != null" >
+        #{signoutsite,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="latin != null" >
+        #{latin,jdbcType=VARCHAR},
+      </if>
+      <if test="lonin != null" >
+        #{lonin,jdbcType=VARCHAR},
+      </if>
+      <if test="latout != null" >
+        #{latout,jdbcType=VARCHAR},
+      </if>
+      <if test="lonout != null" >
+        #{lonout,jdbcType=VARCHAR},
+      </if>
+      <if test="signinimage != null" >
+        #{signinimage,jdbcType=VARCHAR},
+      </if>
+      <if test="signoutimage != null" >
+        #{signoutimage,jdbcType=VARCHAR},
+      </if>
+      <if test="signoutinfo != null" >
+        #{signoutinfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatis.model.Workinfo" >
+    update workinfo
+    <set >
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="taskname != null" >
+        taskname = #{taskname,jdbcType=VARCHAR},
+      </if>
+      <if test="fromsite != null" >
+        fromsite = #{fromsite,jdbcType=VARCHAR},
+      </if>
+      <if test="tosite != null" >
+        tosite = #{tosite,jdbcType=VARCHAR},
+      </if>
+      <if test="planstarttime != null" >
+        planstarttime = #{planstarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="planendtime != null" >
+        planendtime = #{planendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="signintime != null" >
+        signintime = #{signintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signinsite != null" >
+        signinsite = #{signinsite,jdbcType=VARCHAR},
+      </if>
+      <if test="signouttime != null" >
+        signouttime = #{signouttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signoutsite != null" >
+        signoutsite = #{signoutsite,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="latin != null" >
+        latin = #{latin,jdbcType=VARCHAR},
+      </if>
+      <if test="lonin != null" >
+        lonin = #{lonin,jdbcType=VARCHAR},
+      </if>
+      <if test="latout != null" >
+        latout = #{latout,jdbcType=VARCHAR},
+      </if>
+      <if test="lonout != null" >
+        lonout = #{lonout,jdbcType=VARCHAR},
+      </if>
+      <if test="signinimage != null" >
+        signInImage = #{signinimage,jdbcType=VARCHAR},
+      </if>
+      <if test="signoutimage != null" >
+        signOutImage = #{signoutimage,jdbcType=VARCHAR},
+      </if>
+      <if test="signoutinfo != null" >
+        signOutInfo = #{signoutinfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where workid = #{workid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatis.model.Workinfo" >
+    update workinfo
+    set openid = #{openid,jdbcType=VARCHAR},
+      taskname = #{taskname,jdbcType=VARCHAR},
+      fromsite = #{fromsite,jdbcType=VARCHAR},
+      tosite = #{tosite,jdbcType=VARCHAR},
+      planstarttime = #{planstarttime,jdbcType=VARCHAR},
+      planendtime = #{planendtime,jdbcType=VARCHAR},
+      signintime = #{signintime,jdbcType=TIMESTAMP},
+      signinsite = #{signinsite,jdbcType=VARCHAR},
+      signouttime = #{signouttime,jdbcType=TIMESTAMP},
+      signoutsite = #{signoutsite,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      latin = #{latin,jdbcType=VARCHAR},
+      lonin = #{lonin,jdbcType=VARCHAR},
+      latout = #{latout,jdbcType=VARCHAR},
+      lonout = #{lonout,jdbcType=VARCHAR},
+      signInImage = #{signinimage,jdbcType=VARCHAR},
+      signOutImage = #{signoutimage,jdbcType=VARCHAR},
+      signOutInfo = #{signoutinfo,jdbcType=VARCHAR}
+    where workid = #{workid,jdbcType=BIGINT}
+  </update>
+</mapper>
